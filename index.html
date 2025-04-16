@@ -4,80 +4,192 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Oak Shoes</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-
   <!-- Header -->
-  <header>
-    <!-- Logo (Image) -->
-    <img src="assets/logo.png" alt="Oak Shoes Logo" class="nav-logo" />
+<header>
+  <div class="logo">Oak Shoes</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About</a>
+    <a href="cart.html">Cart</a>
+    <button class="auth-btn" id="loginBtn">Login</button>
+    <button class="auth-btn" id="registerBtn">Register</button>
     
-    <!-- Navigation Links -->
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="shop.html">Shop</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+    <!-- Cart and Wishlist Icons -->
+    <div class="nav-icons">
+      <a href="cart.html" class="nav-icon" id="cartBtn" title="Cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </a>
+    </div>
+  </nav>
+</header>
 
+
+  <section class="hero">
+    <div class="hero-bg"></div> <!-- Only one background image now -->
   
-  <!-- Hero Section -->
-<section class="hero">
-    <div class="hero-text">
-      <h2>Crafted for Comfort. Built to Last.</h2>
-      <p>Premium leather shoes that elevate your every step.</p>
-      <button onclick="scrollToShop()">Shop Now</button>
+    <div class="hero-content">
+      <h1>Welcome to Oak Shoes</h1>
+      <p>Premium Leather Footwear, Crafted for Comfort and Style</p>
+    </div>
+  </section>
+  
+    
+  <section class="why-choose-us">
+    <div class="why-row">
+      <div class="content-left">
+        <h3>Handmade Quality</h3>
+        <p>Every pair is crafted with care using premium full-grain leather.</p>
+      </div>
+      <div class="content-right">
+        <img src="assets/model.jpg" alt="Handmade Quality" />
+      </div>
+    </div>
+    
+    <div class="why-row">
+      <div class="content-left">
+        <img src="assets/back.jpg" alt="Timeless Style" />
+      </div>
+      <div class="content-right">
+        <h3>Timeless Style</h3>
+        <p>Designed to be worn season after season, year after year.</p>
+      </div>
+    </div>
+    
+    <div class="why-row">
+      <div class="content-left">
+        <h3>Sustainable Materials</h3>
+        <p>Responsibly sourced leather and eco-friendly production methods.</p>
+      </div>
+      <div class="content-right">
+        <img src="assets/background2.jpg" alt="Sustainable Materials" />
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="testimonials">
+    <h2>What Our Customers Are Saying</h2>
+    
+    <div class="testimonial-row">
+      <div class="testimonial-left">
+        <p>"Oak Shoes are the epitome of luxury. Every pair feels like it's custom made for my feet."</p>
+        <h4>Jane D.</h4>
+        <p>Fashion Blogger</p>
+      </div>
+      <div class="testimonial-right">
+        <img src="assets/casual/1.jpg" alt="Jane D." />
+      </div>
+    </div>
+    
+    <div class="testimonial-row">
+      <div class="testimonial-left">
+        <img src="assets/formal/f-1.jpg" alt="Mark T." />
+      </div>
+      <div class="testimonial-right">
+        <p>"The craftsmanship and attention to detail is incredible. I’ve never worn shoes this comfortable!"</p>
+        <h4>Mark T.</h4>
+        <p>Professional Stylist</p>
+      </div>
+    </div>
+    
+    <div class="testimonial-row">
+      <div class="testimonial-left">
+        <p>"A truly timeless brand. These shoes elevate my outfit and make me feel distinguished."</p>
+        <h4>Linda F.</h4>
+        <p>CEO, Luxury Fashion Brand</p>
+      </div>
+      <div class="testimonial-right">
+        <img src="assets/sandals/s-1.jpg" alt="Linda F." />
+      </div>
     </div>
   </section>
   
 
-  <!-- Features Section -->
-  <section class="features">
-    <div>
-      <h3>Handmade Quality</h3>
-      <p>Every pair is crafted with care using premium full-grain leather.</p>
-    </div>
-    <div>
-      <h3>Timeless Style</h3>
-      <p>Designed to be worn season after season, year after year.</p>
-    </div>
-    <div>
-      <h3>Sustainable Materials</h3>
-      <p>Responsibly sourced leather and eco-friendly production methods.</p>
-    </div>
-  </section>
+  <!-- Combined Modal for Login and Register -->
+<div class="modal" id="authModal">
+  <div class="modal-content">
+    <span class="close" id="closeAuth">&times;</span>
 
-  <!-- Product Grid Section -->
-  <section class="product-grid">
-    <div class="product-card">
-      <img src="assets/casual/2.jpg" alt="Casual Shoes" />
-      <h4>Casual Shoes</h4>
-      <p>$120.00</p>
-      <button>Add to Cart</button>
+    <!-- Login Form -->
+    <div id="loginForm" class="auth-section">
+      <h2>Login</h2>
+      <form>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Log In</button>
+      </form>
+      <p>Don't have an account? <a href="#" id="showRegister">Register here</a></p>
     </div>
-    <div class="product-card">
-      <img src="assets/formal/f-4.jpg" alt="Formal Shoes" />
-      <h4>Formal Shoes</h4>
-      <p>$150.00</p>
-      <button>Add to Cart</button>
-    </div>
-    <div class="product-card">
-      <img src="assets/sandals/s-5.jpg" alt="Sandals" />
-      <h4>Sandals</h4>
-      <p>$100.00</p>
-      <button>Add to Cart</button>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Oak Shoes. All rights reserved.
+    <!-- Register Form -->
+    <div id="registerForm" class="auth-section" style="display: none;">
+      <h2>Register</h2>
+      <form>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <a href="#" id="showLogin">Login here</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+      <p>&copy; 2025 Oak Shoes. All rights reserved.</p>
+  
+      <!-- Social Media Links -->
+      <div class="footer-social">
+        <a href="#" class="social-icon" title="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-icon" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-icon" title="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
   </footer>
+  
 
-  <!-- JavaScript -->
+  
+
+  <div class="cookie-banner" id="cookieBanner">
+    <p>We use cookies to ensure you get the best experience on our website. <a href="#">Learn more</a></p>
+    <button id="acceptCookies">Got it!</button>
+  </div>
+  
+  <script>
+    const banner = document.getElementById("cookieBanner");
+    const acceptBtn = document.getElementById("acceptCookies");
+  
+    if (!localStorage.getItem("cookiesAccepted")) {
+      banner.style.display = "flex";
+    }
+  
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookiesAccepted", "true");
+      banner.style.display = "none";
+    });
+  </script>
+  
+  
+
   <script src="script.js"></script>
-
+  
 </body>
 </html>
